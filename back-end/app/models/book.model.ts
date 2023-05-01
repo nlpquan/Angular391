@@ -29,12 +29,11 @@ Book.findById = (id, result) => {
     }
 
     if (res.length) {
-      console.log("found tutorial: ", res[0]);
+      console.log("found book: ", res[0]);
       result(null, res[0]);
       return;
     }
 
-    // not found Tutorial with the id
     result({ kind: "not_found" }, null);
   });
 };
@@ -53,7 +52,7 @@ Book.getAll = (title, result) => {
       return;
     }
 
-    console.log("tutorials: ", res);
+    console.log("books: ", res);
     result(null, res);
   });
 };
@@ -66,7 +65,7 @@ Book.getAllPublished = result => {
       return;
     }
 
-    console.log("tutorials: ", res);
+    console.log("books: ", res);
     result(null, res);
   });
 };
@@ -83,7 +82,6 @@ Book.updateById = (id, book, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Tutorial with the id
         result({ kind: "not_found" }, null);
         return;
       }
@@ -103,7 +101,7 @@ Book.remove = (id, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Tutorial with the id
+
       result({ kind: "not_found" }, null);
       return;
     }
